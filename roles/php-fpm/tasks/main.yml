@@ -16,6 +16,8 @@
       - phpunit
       - libselinux-python
 
+- file: path=/etc/php-fpm.d/www.conf state=absent
+
 - name: PHP-fpm template
   template: src=www.conf dest=/etc/php-fpm.d/{{inventory_hostname}}.conf
   notify: restart php-fpm
