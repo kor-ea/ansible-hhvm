@@ -11,7 +11,7 @@
     - git
     - curl
     - unzip
-    - php-mysql
+    - php56w-mysql
     - traceroute
     - autojump
     - siege

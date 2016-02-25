@@ -1,19 +1,21 @@
 ---
+- name: install webtatic repo
+  run_once: true
+  yum: name=https://mirror.webtatic.com/yum/el7/webtatic-release.rpm state=present
 
 - name: Install PHP packages
   run_once: true
   yum: name={{ item }} state=present
   with_items:
-      - php
-      - php-cli
-      - php-pecl-imagick
-      - php-curl
-      - php-gd
-      - php-fpm
-      - php-memcache
-      - php-memcached
-      - php-xdebug
-      - phpunit
+      - php56w
+      - php56w-cli
+      - php56w-pecl-imagick
+      - php56w-curl
+      - php56w-gd
+      - php56w-fpm
+      - php56w-pecl-memcache
+      - php56w-pecl-memcached
+      - php56w-pecl-apcu
       - libselinux-python
 
 - file: path=/etc/php-fpm.d/www.conf state=absent
