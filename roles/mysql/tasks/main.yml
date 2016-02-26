@@ -23,11 +23,12 @@
   register: stat_result
 
 - name: update mysql root password for all root accounts
-  mysql_user: 
-    check_implicit_admin=yes
-    name=root 
-    host=localhost 
-    password={{ mysql_root_password }}
+  mysql_user: name=root host=$item password={{ mysql_root_password }}
+  with_items:
+    - localhost
+    - $inventory_hostname
+    - 127.0.0.1
+    - ::1
   when: not stat_result.stat.exists
 
 - name: copy .my.cnf file with root password credentials
