@@ -1,7 +1,4 @@
 ---
-- name: install webtatic repo
-  run_once: true
-  yum: name=https://mirror.webtatic.com/yum/el7/webtatic-release.rpm state=present
 
 - name: Install PHP packages
   run_once: true
