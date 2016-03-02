@@ -5,6 +5,8 @@ Description=HHVM
 
 [Service]
 PIDFile=/var/run/hhvm/hhvm.pid
+ExecStartPre=/bin/mkdir -p /var/run/hhvm/
+ExecStartPre=/bin/chown -R nginx:nginx /var/run/hhvm/
 ExecStart=/usr/bin/hhvm --mode daemon --config /etc/hhvm/config.ini --user nginx
 Restart=on-abort
 TimeoutStartSec=0
